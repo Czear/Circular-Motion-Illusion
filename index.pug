@@ -1,8 +1,38 @@
+-
+    var $menuItems = [{
+        label: "Dot's Amount",
+        name: "dots-amount",
+        type: "number"
+    }, {
+        label: "Full cycle speed (ms)",
+        name: "cycle-speed",
+        type: "number"
+    }, {
+        label: "Dot path distance (px)",
+        name: "path-distance",
+        type: "number"
+    }, {
+        label: "Dot radius (px)",
+        name: "dot-radius",
+        type: "number"
+    }, {
+        label: "Show center dot",
+        name: "center-dot",
+        type: "checkbox"
+    }]
+
 doctype html
 html(lang='en')
     head
         meta(charset='UTF-8')
         meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
         meta(http-equiv='X-UA-Compatible' content='ie=edge')
-        title Document
+        title Circular Motion Illusion
+        //ToDo Wrapped menu
+        form.app-menu
+            each $config in $menuItems
+                fieldset.app-menu__item
+                    label(for=$config.name).app-menu__label=$config.label
+                    input(type=$config.type name=$config.name id=$config.name).app-menu__input
+        canvas#board
     body
